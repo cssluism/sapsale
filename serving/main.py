@@ -8,16 +8,16 @@ app = Flask(__name__)
 model = None
 appHasRunBefore = False
 
+vl_year_salehd = ""
+vl_month_salehd = "" 
+vl_currency_salehd = ""
+vl_year_saleit = ""
+vl_month_saleit = ""
+vl_partnerid_client_so = ""
+vl_currency_saleitem = ""
+vl_productid = ""
+vl_prodcategoryid = ""
 
- VL_YEAR_SALEHD  = ""
-  VL_MONTH_SALEHD = "" 
-   VL_CURRENCY_SALEHD = ""
- VL_YEAR_SALEIT = ""
-  VL_MONTH_SALEIT = ""
-  VL_PARTNERID_CLIENT_SO = ""
- VL_CURRENCY_SALEITEM = ""
- VL_PRODUCTID = ""
- VL_PRODCATEGORYID = ""
 
 
 @app.before_request
@@ -49,9 +49,10 @@ def status():
 def predict():
     global model
     global flower
-    global VL_YEAR_SALEHD, VL_MONTH_SALEHD, VL_CURRENCY_SALEHD
-    global VL_YEAR_SALEIT, VL_MONTH_SALEIT, VL_PARTNERID_CLIENT_SO
-    global VL_CURRENCY_SALEITEM, VL_PRODUCTID, VL_PRODCATEGORYID
+   global vl_year_salehd, vl_month_salehd, vl_currency_salehd
+global vl_year_saleit, vl_month_saleit, vl_partnerid_client_so
+global vl_currency_saleitem, vl_productid, vl_prodcategoryid
+
 
 
 
@@ -63,18 +64,22 @@ def predict():
     else:
         query = dict(request.json)
 
-VL_YEAR_SALEHD = query["YEAR_SALEHD"]
-VL_MONTH_SALEHD = query["YEAR_SALEHD"]
-VL_CURRENCY_SALEHD = query["CURRENCY_SALEHD"]
-VL_YEAR_SALEIT = query["YEAR_SALEIT"]
-VL_MONTH_SALEIT = query["MONTH_SALEIT"]
-VL_PARTNERID_CLIENT_SO = query["PARTNERID_CLIENT_SO"]
-VL_CURRENCY_SALEITEM = query["CURRENCY_SALEITEM"]
-VL_PRODUCTID = query["PRODUCTID"]
-VL_PRODCATEGORYID = query["PRODCATEGORYID"]
+vl_year_salehd = query["YEAR_SALEHD"]
+vl_month_salehd = query["MONTH_SALEHD"]
+vl_currency_salehd = query["CURRENCY_SALEHD"]
+vl_year_saleit = query["YEAR_SALEIT"]
+vl_month_saleit = query["MONTH_SALEIT"]
+vl_partnerid_client_so = query["PARTNERID_CLIENT_SO"]
+vl_currency_saleitem = query["CURRENCY_SALEITEM"]
+vl_productid = query["PRODUCTID"]
+vl_prodcategoryid = query["PRODCATEGORYID"]
+
 
         
-        attributes = [VL_YEAR_SALEHD,VL_MONTH_SALEHD,VL_CURRENCY_SALEHD,VL_YEAR_SALEIT,VL_MONTH_SALEIT,VL_PARTNERID_CLIENT_SO,VL_CURRENCY_SALEITEM,VL_PRODUCTID,VL_PRODCATEGORYID ]
+       attributes = [vl_year_salehd, vl_month_salehd, vl_currency_salehd, 
+              vl_year_saleit, vl_month_saleit, vl_partnerid_client_so, 
+              vl_currency_saleitem, vl_productid, vl_prodcategoryid]
+
         print("Attributes: ", [attributes])
         prediction = model.predict(
             # (trailing comma) <,> to make batch with 1 observation
@@ -82,9 +87,20 @@ VL_PRODCATEGORYID = query["PRODCATEGORYID"]
         )
         
       
-        return {"attributes": {"YEAR_SALEHD": VL_YEAR_SALEHD, "MONTH_SALEHD": VL_MONTH_SALEHD, "CURRENCY_SALEHD": VL_CURRENCY_SALEHD, "YEAR_SALEIT": VL_YEAR_SALEIT, "MONTH_SALEIT": VL_MONTH_SALEIT,"PARTNERID_CLIENT_SO": VL_PARTNERID_CLIENT_SO, "CURRENCY_SALEITEM": VL_CURRENCY_SALEITEM, "PRODUCTID": VL_PRODUCTID, "PRODCATEGORYID": VL_PRODCATEGORYID
-         
-         }, 
+       return {
+    "attributes": {
+        "YEAR_SALEHD": vl_year_salehd,
+        "MONTH_SALEHD": vl_month_salehd,
+        "CURRENCY_SALEHD": vl_currency_salehd,
+        "YEAR_SALEIT": vl_year_saleit,
+        "MONTH_SALEIT": vl_month_saleit,
+        "PARTNERID_CLIENT_SO": vl_partnerid_client_so,
+        "CURRENCY_SALEITEM": vl_currency_saleitem,
+        "PRODUCTID": vl_productid,
+        "PRODCATEGORYID": vl_prodcategoryid
+    }
+
+ 
          "predection": prediction}
 
 
