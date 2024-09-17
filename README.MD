@@ -4,9 +4,11 @@ git remote add origin https://github.com/cssluism/sapsale.git
 git add .
 git commit -m "Initial commit"
 git push -f origin main
-
-
-
+ 
+##  git ADJUST
+git add .
+git commit -m "Adjustment"
+git push -f origin main
 
 docker login
 ## Create docker Training
