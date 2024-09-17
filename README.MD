@@ -1,6 +1,12 @@
 ## git
 git init
 git remote add origin https://github.com/cssluism/sapsale.git
+git add .
+git commit -m "Initial commit"
+git add .
+
+
+
 
 
 ## Create docker Training
