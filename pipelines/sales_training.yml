@@ -37,7 +37,7 @@ spec:
             none:   # specify not to compress while uploading to cloud
               {}
     container:
-      image: docker.io/miltonc/sales-ai-training-image:03 # Your docker image name
+      image: cssluism/sap-sale-training-image:03 # Your docker image name
       command: ["/bin/sh", "-c"]
       env:
         - name: CLASS_LABEL # name of the environment variable inside Docker container
