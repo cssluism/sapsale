@@ -53,17 +53,12 @@ def predict():
     global vl_year_saleit, vl_month_saleit, vl_partnerid_client_so
     global vl_currency_saleitem, vl_productid, vl_prodcategoryid
 
-
-
-
-    
     print("Docker image version is 4.0")
 
     if model is None:
         return "Flask Code: Model was not loaded."
     else:
         query = dict(request.json)
-
         vl_year_salehd = query["YEAR_SALEHD"]
         vl_month_salehd = query["MONTH_SALEHD"]
         vl_currency_salehd = query["CURRENCY_SALEHD"]
@@ -76,9 +71,7 @@ def predict():
 
 
         
-       attributes = [vl_year_salehd, vl_month_salehd, vl_currency_salehd, 
-              vl_year_saleit, vl_month_saleit, vl_partnerid_client_so, 
-              vl_currency_saleitem, vl_productid, vl_prodcategoryid]
+        attributes = [vl_year_salehd, vl_month_salehd, vl_currency_salehd, vl_year_saleit, vl_month_saleit, vl_partnerid_client_so, vl_currency_saleitem, vl_productid, vl_prodcategoryid]
 
         print("Attributes: ", [attributes])
         prediction = model.predict(
@@ -86,22 +79,7 @@ def predict():
             [attributes]
         )
         
-      
-       return {
-    "attributes": {
-        "YEAR_SALEHD": vl_year_salehd,
-        "MONTH_SALEHD": vl_month_salehd,
-        "CURRENCY_SALEHD": vl_currency_salehd,
-        "YEAR_SALEIT": vl_year_saleit,
-        "MONTH_SALEIT": vl_month_saleit,
-        "PARTNERID_CLIENT_SO": vl_partnerid_client_so,
-        "CURRENCY_SALEITEM": vl_currency_saleitem,
-        "PRODUCTID": vl_productid,
-        "PRODCATEGORYID": vl_prodcategoryid
-    }
-
- 
-         "predection": prediction}
+        return {"attributes": {"YEAR_SALEHD": vl_year_salehd,"MONTH_SALEHD": vl_month_salehd,"CURRENCY_SALEHD": vl_currency_salehd,"YEAR_SALEIT": vl_year_saleit,"MONTH_SALEIT": vl_month_saleit,"PARTNERID_CLIENT_SO": vl_partnerid_client_so,"CURRENCY_SALEITEM": vl_currency_saleitem,"PRODUCTID": vl_productid,"PRODCATEGORYID": vl_prodcategoryid},"predection": prediction}
 
 
 if __name__ == "__main__":
