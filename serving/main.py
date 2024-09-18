@@ -49,9 +49,9 @@ def status():
 def predict():
     global model
     global flower
-   global vl_year_salehd, vl_month_salehd, vl_currency_salehd
-global vl_year_saleit, vl_month_saleit, vl_partnerid_client_so
-global vl_currency_saleitem, vl_productid, vl_prodcategoryid
+    global vl_year_salehd, vl_month_salehd, vl_currency_salehd
+    global vl_year_saleit, vl_month_saleit, vl_partnerid_client_so
+    global vl_currency_saleitem, vl_productid, vl_prodcategoryid
 
 
 
@@ -64,15 +64,15 @@ global vl_currency_saleitem, vl_productid, vl_prodcategoryid
     else:
         query = dict(request.json)
 
-vl_year_salehd = query["YEAR_SALEHD"]
-vl_month_salehd = query["MONTH_SALEHD"]
-vl_currency_salehd = query["CURRENCY_SALEHD"]
-vl_year_saleit = query["YEAR_SALEIT"]
-vl_month_saleit = query["MONTH_SALEIT"]
-vl_partnerid_client_so = query["PARTNERID_CLIENT_SO"]
-vl_currency_saleitem = query["CURRENCY_SALEITEM"]
-vl_productid = query["PRODUCTID"]
-vl_prodcategoryid = query["PRODCATEGORYID"]
+        vl_year_salehd = query["YEAR_SALEHD"]
+        vl_month_salehd = query["MONTH_SALEHD"]
+        vl_currency_salehd = query["CURRENCY_SALEHD"]
+        vl_year_saleit = query["YEAR_SALEIT"]
+        vl_month_saleit = query["MONTH_SALEIT"]
+        vl_partnerid_client_so = query["PARTNERID_CLIENT_SO"]
+        vl_currency_saleitem = query["CURRENCY_SALEITEM"]
+        vl_productid = query["PRODUCTID"]
+        vl_prodcategoryid = query["PRODCATEGORYID"]
 
 
         
