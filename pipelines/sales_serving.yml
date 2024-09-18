@@ -34,7 +34,7 @@ spec:
         maxReplicas: 5    # how much to scale
         containers:
         - name: kserve-container
-          image: cssluism/sap-sale-serving-image:04
+          image: cssluism/sap-sale-serving-image:05
           ports:
             - containerPort: 9001    # customizable port
               protocol: TCP
