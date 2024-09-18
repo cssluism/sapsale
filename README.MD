@@ -33,6 +33,8 @@ aws s3 cp data_transfort.csv s3://sapaisale/ai-core/training/data_transfort.csv
 ## s3
 
 aws s3 cp s3://sapaisale/ai-core/output/data_transfort.csv s3://sapaisale/ai-core/training/data_transfort.csv
+aws s3 cp s3://sapaisale/ai-core/output/data_clean.csv s3://sapaisale/ai-core/training/data_clean.csv
+
 
 ## Retrival Bucket
 aws s3 ls s3://sapaisale/ai-core/training/

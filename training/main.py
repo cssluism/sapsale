@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 # Variables
-DATA_PATH = '/app/data/data_transfort.csv'
+DATA_PATH = '/app/data/data_clean.csv'
 CLASS_LABEL= int(os.getenv('CLASS_LABEL'))
 KERNEL= os.getenv('KERNEL')
 MODEL_PATH = '/app/model/model.pkl'
