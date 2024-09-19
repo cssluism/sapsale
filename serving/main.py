@@ -1,6 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask, request
+import pandas as pd
 
 # Creates Flask serving engine
 app = Flask(__name__)
@@ -71,12 +72,36 @@ def predict():
 
 
         
-        attributes = [vl_year_salehd, vl_month_salehd, vl_currency_salehd, vl_year_saleit, vl_month_saleit, vl_partnerid_client_so, vl_currency_saleitem, vl_productid, vl_prodcategoryid]
+        attributes = [[vl_year_salehd, vl_month_salehd, vl_currency_salehd, vl_year_saleit, vl_month_saleit, vl_partnerid_client_so, vl_currency_saleitem, vl_productid, vl_prodcategoryid]]
+        
+        
 
-        print("Attributes: ", [attributes])
+         # Create a DataFrame from the sample input
+         sample_df = pd.DataFrame(attributes, columns=['YEAR_SALEHD','MONTH_SALEHD','CURRENCY_SALEHD','YEAR_SALEIT','MONTH_SALEIT','PARTNERID_CLIENT_SO','CURRENCY_SALEITEM','PRODUCTID','PRODCATEGORYID'])
+
+
+         
+
+        # One-hot encode the sample
+        sample_encoded = pd.get_dummies(sample_df, columns=['YEAR_SALEHD','MONTH_SALEHD','CURRENCY_SALEHD','YEAR_SALEIT','MONTH_SALEIT','PARTNERID_CLIENT_SO','CURRENCY_SALEITEM','PRODUCTID','PRODCATEGORYID'])
+
+        # Assuming features_df contains your training data with one-hot encoded columns
+        # Reindex to match the training feature set
+        sample_encoded = sample_encoded.reindex(columns=features_df.columns, fill_value=0)
+
+# Make the prediction
+##predictedvalue = model.predict(sample_encoded)
+
+
+
+
+
+
+        # Make the prediction
+        print("Attributes: ", attributes)
         prediction = model.predict(
             # (trailing comma) <,> to make batch with 1 observation
-            [attributes]
+            [sample_encoded]
         )
         
         return {"attributes": {"YEAR_SALEHD": vl_year_salehd,"MONTH_SALEHD": vl_month_salehd,"CURRENCY_SALEHD": vl_currency_salehd,"YEAR_SALEIT": vl_year_saleit,"MONTH_SALEIT": vl_month_saleit,"PARTNERID_CLIENT_SO": vl_partnerid_client_so,"CURRENCY_SALEITEM": vl_currency_saleitem,"PRODUCTID": vl_productid,"PRODCATEGORYID": vl_prodcategoryid},"predection": prediction}
