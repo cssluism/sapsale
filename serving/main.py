@@ -70,12 +70,14 @@ def predict():
         vl_currency_saleitem = query["CURRENCY_SALEITEM"]
         vl_productid = query["PRODUCTID"]
         vl_prodcategoryid = query["PRODCATEGORYID"]
-
-
         
+        # Variables
+        DATA_PATH = '/app/data/data_transfort.csv'
+        training_data = pd.read_csv(DATA_PATH)
+        # Apply one-hot encoding to the relevant columns
+        features_df = pd.get_dummies(training_data, columns=['YEAR_SALEHD', 'MONTH_SALEHD', 'CURRENCY_SALEHD', 'YEAR_SALEIT', 'MONTH_SALEIT', 'PARTNERID_CLIENT_SO', 'CURRENCY_SALEITEM', 'PRODUCTID', 'PRODCATEGORYID'])
+
         attributes = [[vl_year_salehd, vl_month_salehd, vl_currency_salehd, vl_year_saleit, vl_month_saleit, vl_partnerid_client_so, vl_currency_saleitem, vl_productid, vl_prodcategoryid]]
-        
-        
 
          # Create a DataFrame from the sample input
         sample_df = pd.DataFrame(attributes, columns=['YEAR_SALEHD','MONTH_SALEHD','CURRENCY_SALEHD','YEAR_SALEIT','MONTH_SALEIT','PARTNERID_CLIENT_SO','CURRENCY_SALEITEM','PRODUCTID','PRODCATEGORYID'])
