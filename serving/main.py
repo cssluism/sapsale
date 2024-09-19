@@ -77,7 +77,7 @@ def predict():
         
 
          # Create a DataFrame from the sample input
-         sample_df = pd.DataFrame(attributes, columns=['YEAR_SALEHD','MONTH_SALEHD','CURRENCY_SALEHD','YEAR_SALEIT','MONTH_SALEIT','PARTNERID_CLIENT_SO','CURRENCY_SALEITEM','PRODUCTID','PRODCATEGORYID'])
+        sample_df = pd.DataFrame(attributes, columns=['YEAR_SALEHD','MONTH_SALEHD','CURRENCY_SALEHD','YEAR_SALEIT','MONTH_SALEIT','PARTNERID_CLIENT_SO','CURRENCY_SALEITEM','PRODUCTID','PRODCATEGORYID'])
 
 
          
