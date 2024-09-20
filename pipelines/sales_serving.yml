@@ -17,6 +17,8 @@ spec:
   inputs:
     artifacts:
       - name: salesmodel # placeholder name, do not add `-` in value use only alphanumeric chars
+      - name: salesdataset # a name for the placeholder
+        path: /app/data/ # where to copy in the Dataset in the Docker image
   template:
     apiVersion: "serving.kserve.io/v1beta1"
     metadata:
