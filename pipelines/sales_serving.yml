@@ -10,6 +10,7 @@ metadata:
     executables.ai.sap.com/description: "Serving  sales dataset"
 
     artifacts.ai.sap.com/salesmodel.kind: "model" # Suggest the kind of artifact to input.
+    artifacts.ai.sap.com/salesdataset.kind: "dataset" # Suggest the kind of artifact to input.
   labels:
     scenarios.ai.sap.com/id: "sales-classifier-scenario"
     ai.sap.com/version: "4.0"
